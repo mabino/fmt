@@ -109,6 +109,7 @@ import std;
 #endif
 
 // Detect consteval, C++20 constexpr extensions and std::is_constant_evaluated.
+#ifndef FMT_USE_CONSTEVAL
 #if !defined(__cpp_lib_is_constant_evaluated)
 #  define FMT_USE_CONSTEVAL 0
 #elif FMT_CPLUSPLUS < 201709L
@@ -128,6 +129,7 @@ import std;
 #else
 #  define FMT_USE_CONSTEVAL 0
 #endif
+#endif // FMT_USE_CONSTEVAL
 #if FMT_USE_CONSTEVAL
 #  define FMT_CONSTEVAL consteval
 #  define FMT_CONSTEXPR20 constexpr
